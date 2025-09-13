@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "ProductAPI": {
+    "ProductCRUD": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

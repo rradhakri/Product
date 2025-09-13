@@ -2,10 +2,10 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using ProductAPI.Model;
+using ProductCRUD.Model;
 using System.Data;
 
-namespace ProductAPI.Data
+namespace ProductCRUD.Data
 {
     public class ProductAPIContext
     {
@@ -26,14 +26,14 @@ namespace ProductAPI.Data
         // Read All
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            var sql = "SELECT * FROM Products";
+            var sql = "SELECT Id,Name,Description,Price FROM Products";
             return await _dbConnection.QueryAsync<Product>(sql);
         }
 
         // Get the Product By Id 
         public async Task<Product?> GetProductById(int id)
         {
-            var sql = "SELECT * FROM Products WHERE Id = @Id";
+            var sql = "SELECT Id,Name,Description,Price FROM Products WHERE Id = @Id";
             return await _dbConnection.QuerySingleOrDefaultAsync<Product>(sql, new { Id = id });
         }
 

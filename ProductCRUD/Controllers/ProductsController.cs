@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProductAPI.Data;
-using ProductAPI.Model;
+using ProductCRUD.Data;
+using ProductCRUD.Model;
 
-namespace ProductAPI.Controllers
+namespace ProductCRUD.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

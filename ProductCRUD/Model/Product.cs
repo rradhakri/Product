@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.ComponentModel.DataAnnotations;
-namespace ProductAPI.Model
+namespace ProductCRUD.Model
 {
     public class Product
     {
