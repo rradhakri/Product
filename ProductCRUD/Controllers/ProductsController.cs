@@ -34,7 +34,10 @@ namespace ProductCRUD.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _context.GetProductById(id);
+            //var product = await _context.GetProductById(id);
+            var productSingle = await _context.GetAllProducts();
+            var product = productSingle.Where(p => p.Id == id);
+
             if (product == null)
             {
                 return NotFound();
