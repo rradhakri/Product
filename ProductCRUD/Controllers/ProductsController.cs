@@ -15,9 +15,9 @@ namespace ProductCRUD.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly ProductAPIContext _context;
+        private readonly ProductCRUDContext _context;
 
-        public ProductsController(ProductAPIContext context)
+        public ProductsController(ProductCRUDContext context)
         {
             _context = context;
         }
@@ -72,6 +72,8 @@ namespace ProductCRUD.Controllers
 
             return NoContent();
         }
+
+
 
     }
 }

@@ -7,11 +7,11 @@ using System.Data;
 
 namespace ProductCRUD.Data
 {
-    public class ProductAPIContext
+    public class ProductCRUDContext
     {
         private readonly IDbConnection _dbConnection;
 
-        public ProductAPIContext(IDbConnection dbConnection)
+        public ProductCRUDContext(IDbConnection dbConnection)
         {
             _dbConnection = dbConnection;
         }
@@ -63,5 +63,7 @@ namespace ProductCRUD.Data
             var parameters = new { Id = id };
             await _dbConnection.ExecuteAsync(sql, parameters);
         }
+
+
     }
 }

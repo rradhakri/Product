@@ -1,7 +1,8 @@
 ﻿namespace ProductCRUD.Model
 {
-    public class AuthenticatedResponse
+    public class TokenResponse
     {
-        public string? Token { get; set; }
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 }

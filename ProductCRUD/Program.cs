@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Optivem.Framework.Core.Domain;
+using ProductCRUD.Controllers;
 using ProductCRUD.Data;
 using System.Data;
 using System.Text;
@@ -12,8 +15,12 @@ var key = builder.Configuration["Jwt:Key"];
 var issuer = builder.Configuration["Jwt:Issuer"];
 
 builder.Services.AddScoped<IDbConnection>(sp =>
-    new SqlConnection(builder.Configuration.GetConnectionString("ProductAPIContext")));
-builder.Services.AddScoped<ProductAPIContext>();
+    new SqlConnection(builder.Configuration.GetConnectionString("ProductCRUDContext")));
+builder.Services.AddScoped<ProductCRUDContext>();
+
+builder.Services.AddDbContext<ProductDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ProductCRUDContext")));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
